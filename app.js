@@ -13,7 +13,7 @@ class AppBootHook {
         // 请将你的插件项目中 app.beforeStart 中的代码置于此处。
         require("babel-polyfill");
         require("babel-register")({
-            only: [/view\/*/]
+            only: [/web\/*/]
         });
     }
 

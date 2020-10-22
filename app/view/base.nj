@@ -1,0 +1,30 @@
+ <!DOCTYPE html>
+ <html lang="zh-CN">
+   <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <title>{% block title %}title默认内容{% endblock %}</title>
+     <meta name="keywords" content="{% block keywords %}keywords默认内容{% endblock %}">
+     <meta name="description" content="{% block description %}description默认内容{% endblock %}">
+     
+     {% block head %}{% endblock %}
+   </head>
+ ​
+   <body>
+   
+     <noscript>You need to enable JavaScript to run this app.</noscript>
+     <div id="root">{{ html | safe }}</div>
+ ​    <script>
+        (function () {
+            (!window.__reactSSRData__) && (window.__reactSSRData__ = {})
+            window.__reactSSRData__.getProps = function () {
+                return {{ props | safe }};
+            };
+        })();
+     </script>
+     <script src="{{ js }}"></script>
+     <!-- script部分 -->
+     {% block script %}{% endblock %}
+   </body>
+ </html>
